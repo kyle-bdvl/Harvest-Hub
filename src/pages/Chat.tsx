@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-export default function Shopping() {
+export default function Chat() {
   const navi = useNavigate()
   return (
     <>

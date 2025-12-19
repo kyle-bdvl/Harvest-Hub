@@ -3,7 +3,7 @@ import { SidebarProvider, SidebarTrigger } from "@/shadcn/ui/sidebar"
 import CustomSidebar from "../components/CustomSidebar"
 
 import Home from "../pages/Home"
-import Shopping from "../pages/Shopping"
+import Chat from "../pages/Chat"
 
 export function AppRoutes() {
   return (
@@ -13,13 +13,13 @@ export function AppRoutes() {
 
       {/* 🔹 PAGES WITH SIDEBAR */}
       <Route
-        path="/shopping"
+        path="/chat"
         element={
           <SidebarProvider>
             <CustomSidebar />
             <main className="w-full p-4">
               <SidebarTrigger />
-              <Shopping />
+              <Chat />
             </main>
           </SidebarProvider>
         }
