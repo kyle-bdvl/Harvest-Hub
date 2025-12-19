@@ -1,20 +1,29 @@
-import { Routes, Route } from "react-router-dom";
-import { SidebarProvider, SidebarTrigger } from "@/shadcn/ui/sidebar";
-import CustomSidebar from "../components/CustomSidebar";
-import Home from '../pages/Home'
-import Shopping from '../pages/Shopping'
+import { Routes, Route } from "react-router-dom"
+import { SidebarProvider, SidebarTrigger } from "@/shadcn/ui/sidebar"
+import CustomSidebar from "../components/CustomSidebar"
 
-export function AppRoutes(){
+import Home from "../pages/Home"
+import Shopping from "../pages/Shopping"
+
+export function AppRoutes() {
   return (
-    <SidebarProvider>
-      <CustomSidebar />
-      <main className="w-full p-4">
-        <SidebarTrigger />
-        <Routes>
-          <Route index element={<Home/>}/>
-          <Route path="shopping" element={<Shopping/>}/>
-        </Routes>
-      </main>
-    </SidebarProvider>
-  );
+    <Routes>
+      {/* 🔹 HOME — NO SIDEBAR */}
+      <Route path="/" element={<Home />} />
+
+      {/* 🔹 PAGES WITH SIDEBAR */}
+      <Route
+        path="/shopping"
+        element={
+          <SidebarProvider>
+            <CustomSidebar />
+            <main className="w-full p-4">
+              <SidebarTrigger />
+              <Shopping />
+            </main>
+          </SidebarProvider>
+        }
+      />
+    </Routes>
+  )
 }
