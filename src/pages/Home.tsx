@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useAppDispatch } from "@/store/hooks"
+import { setInitialPrompt } from "@/store/chat"
 
 /**
  * ShadCN UI components
@@ -19,6 +21,7 @@ import { Badge } from "@/shadcn/ui/badge"
  */
 export default function Home() {
   const navi = useNavigate()
+  const dispatch = useAppDispatch()
 
   // Stores the user’s input prompt
   const [prompt, setPrompt] = useState("")
@@ -36,6 +39,13 @@ export default function Home() {
     ],
     []
   )
+
+  const handleStartChat = () => {
+    if (prompt.trim()) {
+      dispatch(setInitialPrompt(prompt))
+      navi("/chat")
+    }
+  }
 
   return (
     /**
@@ -103,6 +113,11 @@ export default function Home() {
               <Input
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && prompt.trim()) {
+                    handleStartChat()
+                  }
+                }}
                 placeholder='Try: "Create a business strategy for my company"'
                 className="bg-black/20 border-white/15 text-white placeholder:text-white/40"
               />
@@ -112,7 +127,7 @@ export default function Home() {
                 Disabled until user enters a prompt.
               */}
               <Button
-                onClick={() => navi("/chat")}
+                onClick={handleStartChat}
                 disabled={!prompt.trim()}
                 className="sm:w-[160px] bg-gradient-to-r from-indigo-500 to-pink-500 text-white hover:opacity-90"
               >
