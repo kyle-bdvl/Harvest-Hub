@@ -102,7 +102,7 @@ export default function Chat() {
         generationConfig: {
           temperature: 0.6,
           topP: 0.9,
-          maxOutputTokens: 512,
+          maxOutputTokens: 2048,
         },
       }),
     })
