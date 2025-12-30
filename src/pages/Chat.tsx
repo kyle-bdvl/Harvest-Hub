@@ -16,7 +16,7 @@ type Message = {
 }
 
 const API_KEY = import.meta.env.VITE_AI_API_KEY as string
-const GEMINI_MODEL = "gemini-2.0-flash" 
+const GEMINI_MODEL = "gemini-2.5-flash" 
 const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${API_KEY}`
 
 const SYSTEM_INSTRUCTION = `
@@ -151,7 +151,7 @@ export default function Chat() {
           {messages.map((message) => (
             <div key={message.id} className={`flex gap-4 ${message.role === "user" ? "flex-row-reverse" : ""}`}>
               <Avatar className="size-8 shrink-0">
-                <AvatarFallback className={message.role === "assistant" ? "bg-gradient-to-br from-indigo-500 to-pink-500" : "bg-primary"}>
+                <AvatarFallback className={message.role === "assistant" ? "bg-linear-to-br from-indigo-500 to-pink-500" : "bg-primary"}>
                   {message.role === "assistant" ? <Bot className="size-4 text-white" /> : <User className="size-4 text-white" />}
                 </AvatarFallback>
               </Avatar>
@@ -173,7 +173,7 @@ export default function Chat() {
           ))}
           {isTyping && (
             <div className="flex gap-4">
-              <Avatar className="size-8 shrink-0"><AvatarFallback className="bg-gradient-to-br from-indigo-500 to-pink-500"><Bot className="size-4 text-white" /></AvatarFallback></Avatar>
+              <Avatar className="size-8 shrink-0"><AvatarFallback className="bg-linear-to-br from-indigo-500 to-pink-500"><Bot className="size-4 text-white" /></AvatarFallback></Avatar>
               <div className="flex items-center gap-1 rounded-2xl bg-muted px-4 py-3">
                 <div className="size-2 animate-bounce rounded-full bg-foreground/40 [animation-delay:-0.3s]" />
                 <div className="size-2 animate-bounce rounded-full bg-foreground/40 [animation-delay:-0.15s]" />
