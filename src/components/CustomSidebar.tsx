@@ -61,7 +61,7 @@ const bottomItems = [
 const accessOptions = [
   { key: "terminal", label: "Terminal" },
   { key: "files", label: "Files" },
-  { key: "other", label: "Other Apps" },
+  { key: "browser", label: "Browser" },
 ]
 
 export default function CustomSidebar() {
