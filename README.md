@@ -62,17 +62,23 @@ src/
 └── assets/             # Static assets
 ```
 ## Setup Instructions 
-### CLone the repo 
+### Clone the repo 
 ```bash 
 git clone <your-repository-url>
 cd HarvestHub
 ```
 ### install Dependencies 
-```npm install ```
+```bash 
+npm install 
+```
 
 ### Setting up environment 
 * Create a .env file and then place your gemini API key
-``` VITE_AI_API_KEY=your_gemini_api_key_here ```
+```bash  
+VITE_AI_API_KEY=your_gemini_api_key_here 
+```
 
 ### Start the development 
-```npm run dev ```
+```bash 
+npm run dev 
+```
