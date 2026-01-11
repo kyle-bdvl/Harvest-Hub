@@ -1,4 +1,4 @@
-# Rebound AI - Your AI-Powered Business Assistant
+# Rebound AI - The trusted AI Engine for Sensitive Data
  Rebound AI is an advanced conversational AI assistant designed specifically for business strategy, planning, and organizational productivity. Built with React, TypeScript, and powered by Google's Gemini AI, it provides a secure, intuitive interface for users to interact with AI for various business-related tasks.
 
 ## Features
